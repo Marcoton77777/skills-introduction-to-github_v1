@@ -1,0 +1,9 @@
+HELLO:
+  build:
+    appl: CG
+    proc: CO2RVQ03
+    sp_codepage: E
+    sp_type: SPC
+    tipologia: SRG
+    xapp: HJ
+  dependencies: []
