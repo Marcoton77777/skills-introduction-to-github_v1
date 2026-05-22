@@ -1,0 +1,50 @@
+name: COBOL Compile Pipeline
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout codice
+        uses: actions/checkout@v4
+
+      - name: Leggi config YAML
+        run: |
+          echo "========================================="
+          echo "📦 LETTURA CONFIG BUILD"
+          echo "========================================="
+          cat config/build.yml
+
+      - name: Verifica sorgente COBOL
+        run: |
+          echo "========================================="
+          echo "🔍 SORGENTI DA COMPILARE"
+          echo "========================================="
+          ls -la src/
+          echo ""
+          echo "--- Contenuto HELLO.cbl ---"
+          cat src/HELLO.cbl
+
+      - name: Simula compilazione COBOL
+        run: |
+          echo "========================================="
+          echo "⚙️  COMPILAZIONE IN CORSO..."
+          echo "========================================="
+          echo "Programma: HELLO"
+          echo "Proc: CO2RVQ03"
+          echo "Codepage: EBCDIC"
+          echo "Tipo: SRG"
+          echo ""
+          sleep 2
+          echo "✅ COMPILAZIONE COMPLETATA CON SUCCESSO"
+          echo "========================================="
+
+      - name: Simula deploy
+        run: |
+          echo "========================================="
+          echo "🚀 DEPLOY"
+          echo "========================================="
+          echo "Programma HELLO deployato in TEST"
+          echo "========================================="
