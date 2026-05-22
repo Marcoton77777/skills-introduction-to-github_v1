@@ -25,7 +25,7 @@ jobs:
           ls -la src/
           echo ""
           echo "--- Contenuto HELLO.cbl ---"
-          cat src/HELLO.cbl
+          cat src/Hello.cbl
 
       - name: Simula compilazione COBOL
         run: |
