@@ -29,19 +29,17 @@ jobs:
 
       - name: Simula compilazione COBOL
         run: |
-          echo "❌ ERRORE: sorgente non valido"
-          exit 1
-          echo "========================================="
           echo "⚙️  COMPILAZIONE IN CORSO..."
-          echo "========================================="
-          echo "Programma: HELLO"
-          echo "Proc: CO2RVQ03"
-          echo "Codepage: EBCDIC"
-          echo "Tipo: SRG"
-          echo ""
-          sleep 2
-          echo "✅ COMPILAZIONE COMPLETATA CON SUCCESSO"
-          echo "========================================="
+          FILE="src/Hello.cbl"
+          if ! grep -q "PROGRAM-ID" "$FILE"; then
+            echo "❌ ERRORE: PROGRAM-ID mancante in $FILE"
+            exit 1
+          fi
+          if ! grep -q "STOP RUN" "$FILE"; then
+            echo "❌ ERRORE: STOP RUN mancante in $FILE"
+            exit 1
+          fi
+          echo "✅ COMPILAZIONE OK"
 
       - name: Simula deploy
         run: |
