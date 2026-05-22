@@ -29,6 +29,8 @@ jobs:
 
       - name: Simula compilazione COBOL
         run: |
+          echo "❌ ERRORE: sorgente non valido"
+          exit 1
           echo "========================================="
           echo "⚙️  COMPILAZIONE IN CORSO..."
           echo "========================================="
